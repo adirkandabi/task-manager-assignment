@@ -32,7 +32,7 @@ All core logic is fully tested:
 
 ---
 
-## ▶️ Getting Started
+## Getting Started
 
 ### Run Locally
 
