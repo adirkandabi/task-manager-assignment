@@ -8,7 +8,7 @@ It supports user authentication via **AWS Cognito**, and implements role-based a
 - **Backend**: C# (.NET 8 Web API)
 - **Database**: SQL Server (via Entity Framework Core)
 - **Authentication**: AWS Cognito (User Pool)
-- **Testing: xUnit, Moq, FluentAssertions
+- **Testing**: xUnit, Moq, FluentAssertions
 ---
 
 ## Features
