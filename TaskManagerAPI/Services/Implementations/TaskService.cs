@@ -17,8 +17,10 @@ namespace TaskManagerAPI.Services.Implementations
         {
             _taskRepository = taskRepository;
         }
+        // Get all tasks for a project, either all tasks if admin or user-specific tasks
         public async Task<List<TaskItem>> GetTasksAsync(ClaimsPrincipal user, int projectId, int page, int pageSize)
         {
+            // If user is authenticated, retrieve their ID
             var userId = user.FindFirstValue("username");
             if (string.IsNullOrEmpty(userId))
             {
@@ -29,6 +31,7 @@ namespace TaskManagerAPI.Services.Implementations
                 ? await _taskRepository.GetAllProjectTasksAsync(projectId, page, pageSize)
                 : await _taskRepository.GetUserProjectTasksAsync(projectId, userId, page, pageSize);
         }
+        // Create a new task for a project
         public async Task<TaskItem> AddTaskAsync(TaskDto task, int projectId, ClaimsPrincipal user)
         {
             var userId = user.FindFirstValue("username");
@@ -36,7 +39,7 @@ namespace TaskManagerAPI.Services.Implementations
             {
                 throw new UnauthorizedAccessException("User ID is missing.");
             }
-
+            // Map TaskDto to TaskItem entity
             var newTask = new TaskItem
             {
                 Name = task.Name,
@@ -47,6 +50,7 @@ namespace TaskManagerAPI.Services.Implementations
             bool isAdmin = Helpers.Helpers.IsAdmin(user);
             return await _taskRepository.AddTaskAsync(newTask, userId, isAdmin);
         }
+        // Update an existing task for a project
         public async Task<TaskItem> UpdateTaskAsync(TaskDto updatedTaskDto, int taskId,int projectId, ClaimsPrincipal user)
         {
             try
@@ -67,10 +71,10 @@ namespace TaskManagerAPI.Services.Implementations
                 return await _taskRepository.UpdateTaskAsync(updatedTask, taskId,projectId, userId, isAdmin);
             }catch(Exception ex)
             {
-                Console.WriteLine(ex.ToString());
                 throw;
             }
         }
+        // Update the status of an existing task 
         public async Task<TaskItem> UpdateTaskStatusAsync(TaskItemStatus status, int taskId, int projectId, ClaimsPrincipal user)
         {
             try
@@ -84,10 +88,10 @@ namespace TaskManagerAPI.Services.Implementations
                 return await _taskRepository.UpdateTaskStatusAsync(status, taskId,projectId, userId, isAdmin);
             }catch(Exception ex)
             {
-                Console.WriteLine(ex);
                 throw;
             }
         }
+        // Delete a task from a project
         public async Task<bool> DeleteTaskAsync(int taskId, int projectId, ClaimsPrincipal user)
         {
             try
@@ -101,7 +105,6 @@ namespace TaskManagerAPI.Services.Implementations
                 return await _taskRepository.DeleteTaskAsync(taskId,projectId, userId, isAdmin);
             }catch(Exception ex)
             {
-                Console.WriteLine(ex);
                 throw;
             }
 

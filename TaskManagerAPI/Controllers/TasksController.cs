@@ -21,7 +21,7 @@ namespace TaskManagerAPI.Controllers
             _logger = logger;
             _tasksService = tasksService;
         }
-
+        // GET: projects/{projectId}/tasks
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetTasks(int projectId, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
@@ -37,7 +37,7 @@ namespace TaskManagerAPI.Controllers
                 return StatusCode(500, $"Error retrieving tasks: {ex.Message}");
             }
         }
-
+        // POST: projects/{projectId}/tasks
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> AddTask(int projectId, [FromBody] TaskDto task)
@@ -58,7 +58,7 @@ namespace TaskManagerAPI.Controllers
                 return StatusCode(500, $"Error adding task: {ex.Message}");
             }
         }
-
+        // PUT: projects/{projectId}/tasks/{taskId}
         [HttpPut("{taskId}")]
         [Authorize]
         public async Task<IActionResult> UpdateTask(int projectId,int taskId, [FromBody] TaskDto task)
@@ -84,7 +84,7 @@ namespace TaskManagerAPI.Controllers
                 return StatusCode(500, $"Error updating task: {ex.Message}");
             }
         }
-
+        // PATCH: projects/{projectId}/tasks/{taskId}/status
         [HttpPatch("{taskId}/status")]
         [Authorize]
         public async Task<IActionResult> UpdateTaskStatus(int projectId,int taskId, [FromQuery] TaskItemStatus status)
@@ -110,7 +110,7 @@ namespace TaskManagerAPI.Controllers
                 return StatusCode(500, $"Error updating task status: {ex.Message}");
             }
         }
-
+        // DELETE: projects/{projectId}/tasks/{taskId}
         [HttpDelete("{taskId}")]
         [Authorize]
         public async Task<IActionResult> DeleteTask(int projectId,int taskId)

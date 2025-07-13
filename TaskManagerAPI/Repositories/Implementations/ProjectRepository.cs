@@ -16,7 +16,7 @@ namespace TaskManagerAPI.Repositories.Implementations
         {
             _context = context;
         }
-
+        // Get all projects with pagination
         public async Task<List<Project>> GetAllProjectsAsync(int page, int pageSize)
         {
             return await _context.Projects
@@ -25,7 +25,7 @@ namespace TaskManagerAPI.Repositories.Implementations
                 .Take(pageSize)
                 .ToListAsync();
         }
-
+        // Get projects for a specific user with pagination
         public async Task<List<Project>> GetUserProjectsAsync(string userId, int page, int pageSize)
         {
             return await _context.Projects
@@ -35,12 +35,14 @@ namespace TaskManagerAPI.Repositories.Implementations
                 .Take(pageSize)
                 .ToListAsync();
         }
+        // Add a new project
         public async Task<Project> AddProjectAsync(Project project)
         {
             await _context.Projects.AddAsync(project);
             await _context.SaveChangesAsync();
             return project;
         }
+        // Update an existing project
         public async Task<Project> UpdateProjectAsync(Project updatedProject, int projectId, string userId, bool isAdmin = false)
         {
            
@@ -62,6 +64,7 @@ namespace TaskManagerAPI.Repositories.Implementations
 
             return project;
         }
+        // Delete a project
         public async Task<bool> DeleteProjectAsync(int projectId, string userId, bool isAdmin)
         {
             var project = await _context.Projects.FindAsync(projectId);

@@ -21,6 +21,7 @@ namespace TaskManagerAPI.Controllers
             _logger = logger;
         }
 
+        // GET: projects
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetProjects([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
@@ -35,6 +36,7 @@ namespace TaskManagerAPI.Controllers
                 return StatusCode(500, "Internal server error.");
             }
         }
+        // POST: projects
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> CreateProject([FromBody] ProjectDto project)
@@ -49,6 +51,7 @@ namespace TaskManagerAPI.Controllers
                 return StatusCode(500, "Internal server error.");
             }
         }
+        // PUT: projects/{projectId}
         [HttpPut("{projectId}")]
         [Authorize]
         public async Task<IActionResult> UpdateProject(int projectId, [FromBody] ProjectDto project)
@@ -76,6 +79,7 @@ namespace TaskManagerAPI.Controllers
                 return StatusCode(500, "An unexpected error occurred.");
             }
         }
+        // DELETE: projects/{projectId}
         [HttpDelete("{projectId}")]
         [Authorize]
         public async Task<IActionResult> DeleteProject(int projectId)

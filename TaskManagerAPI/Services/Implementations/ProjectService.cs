@@ -15,11 +15,15 @@ namespace TaskManagerAPI.Services.Implementations
         {
             _projectRepository = projectRepository;
         }
-
+        // Get all projects for a user or all projects if admin
         public async Task<List<Project>> GetProjectsAsync(ClaimsPrincipal user, int page, int pageSize)
         {
+            // If user is authenticated, retreive their ID
             var userId = user.FindFirstValue("username");
-          
+            if (string.IsNullOrEmpty(userId)) {
+                throw new UnauthorizedAccessException("User ID is missing.");
+            }
+
             bool isAdmin = Helpers.Helpers.IsAdmin(user);
 
 
@@ -27,6 +31,7 @@ namespace TaskManagerAPI.Services.Implementations
                 ? await _projectRepository.GetAllProjectsAsync(page, pageSize)
                 : await _projectRepository.GetUserProjectsAsync(userId, page, pageSize);
         }
+        // Create a new project
         public async Task<Project> AddProjectAsync(ProjectDto project, ClaimsPrincipal user)
         {
             var userId = user.FindFirstValue("username");
@@ -34,7 +39,7 @@ namespace TaskManagerAPI.Services.Implementations
             {
                 throw new UnauthorizedAccessException("User ID is missing.");
             }
-           
+           // Map ProjectDto to Project entity
             var newProject = new Project
             {
                 Name = project.Name,
@@ -43,16 +48,20 @@ namespace TaskManagerAPI.Services.Implementations
             };
             return await _projectRepository.AddProjectAsync(newProject);
         }
+        // Update an existing project
         public async Task<Project> UpdateProjectAsync(ProjectDto updatedProjectDto, int projectId, ClaimsPrincipal user)
         {
             try
             {
                 var userId = user.FindFirstValue("username");
-                if (string.IsNullOrEmpty(userId))
+                var userId = user.FindFirstValue("username");
+                if (string.IsNullOrEmpty(userId)) {
                     throw new UnauthorizedAccessException("User ID is missing.");
+                }
 
-               
+
                 bool isAdmin =Helpers.Helpers.IsAdmin(user);
+                // Map ProjectDto to Project entity
                 var updatedProject = new Project
                 {
                     Name = updatedProjectDto.Name,
@@ -63,18 +72,18 @@ namespace TaskManagerAPI.Services.Implementations
             }
             catch (Exception ex)
             {
-                // Log exception (use logger in real app)
-                Console.WriteLine($"Error updating project: {ex.Message}");
-                throw; // Let controller handle final response
+                throw; 
             }
         }
+        // Delete a project
         public async Task<bool> DeleteProjectAsync(int projectId, ClaimsPrincipal user)
         {
             try
             {
                 var userId = user.FindFirstValue("username");
-                if (string.IsNullOrEmpty(userId))
-                    throw new UnauthorizedAccessException("User ID is missing.");
+                if (string.IsNullOrEmpty(userId)) { 
+                     throw new UnauthorizedAccessException("User ID is missing.");
+                }
 
                
                 bool isAdmin = Helpers.Helpers.IsAdmin(user);
