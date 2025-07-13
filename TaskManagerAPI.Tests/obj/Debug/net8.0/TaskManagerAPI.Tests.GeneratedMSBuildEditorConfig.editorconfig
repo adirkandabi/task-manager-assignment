@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TaskManagerAPI.Tests
-build_property.ProjectDir = D:\inetpub\wwwroot\projects\labs\taskManager\TaskManagerAPI.Tests\
+build_property.ProjectDir = C:\Users\kanda\assignments\moveo\TaskManager\TaskManagerAPI.Tests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

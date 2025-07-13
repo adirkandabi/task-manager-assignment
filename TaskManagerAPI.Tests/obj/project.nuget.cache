@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m8kyJneHyPw=",
+  "dgSpecHash": "hwHQu8eoYHY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj",
+  "projectFilePath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kanda\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\kanda\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

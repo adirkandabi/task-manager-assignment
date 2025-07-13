@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj": {}
+    "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj": {
+    "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj",
         "projectName": "TaskManagerAPI.Tests",
-        "projectPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj",
+        "projectPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI.Tests\\TaskManagerAPI.Tests.csproj",
         "packagesPath": "C:\\Users\\kanda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI.Tests\\obj\\",
+        "outputPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI\\TaskManagerAPI.csproj": {
-                "projectPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI\\TaskManagerAPI.csproj"
+              "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI\\TaskManagerAPI.csproj": {
+                "projectPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI\\TaskManagerAPI.csproj"
               }
             }
           }
@@ -95,14 +95,14 @@
         }
       }
     },
-    "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI\\TaskManagerAPI.csproj": {
+    "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI\\TaskManagerAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI\\TaskManagerAPI.csproj",
+        "projectUniqueName": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI\\TaskManagerAPI.csproj",
         "projectName": "TaskManagerAPI",
-        "projectPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI\\TaskManagerAPI.csproj",
+        "projectPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI\\TaskManagerAPI.csproj",
         "packagesPath": "C:\\Users\\kanda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManagerAPI\\obj\\",
+        "outputPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -70,7 +70,7 @@ namespace TaskManagerAPI.Repositories.Implementations
             }
             // Check access if not admin
             if(!isAdmin && project.UserId != userId) {
-                throw new UnauthorizedAccessException("You are not authorized to update this task.");
+                throw new UnauthorizedAccessException("You are not authorized to add a task to this project.");
             }
             await _context.Tasks.AddAsync(task);
             await _context.SaveChangesAsync();
@@ -136,7 +136,7 @@ namespace TaskManagerAPI.Repositories.Implementations
             }
             task.Status = status;
             _context.Tasks.Update(task);
-             
+            
             await _context.SaveChangesAsync();
 
             return task;

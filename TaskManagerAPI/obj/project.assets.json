@@ -5857,23 +5857,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ron\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\kanda\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\inetpub\\wwwroot\\projects\\labs\\taskManager\\TaskManagerAPI\\TaskManagerAPI.csproj",
+      "projectUniqueName": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI\\TaskManagerAPI.csproj",
       "projectName": "TaskManagerAPI",
-      "projectPath": "D:\\inetpub\\wwwroot\\projects\\labs\\taskManager\\TaskManagerAPI\\TaskManagerAPI.csproj",
-      "packagesPath": "C:\\Users\\Ron\\.nuget\\packages\\",
-      "outputPath": "D:\\inetpub\\wwwroot\\projects\\labs\\taskManager\\TaskManagerAPI\\obj\\",
+      "projectPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI\\TaskManagerAPI.csproj",
+      "packagesPath": "C:\\Users\\kanda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kanda\\assignments\\moveo\\TaskManager\\TaskManagerAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5971,7 +5972,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.409/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
