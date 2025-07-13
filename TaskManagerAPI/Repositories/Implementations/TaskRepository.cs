@@ -17,7 +17,7 @@ namespace TaskManagerAPI.Repositories.Implementations
         {
             _context = context;
         }
-
+        // Get all tasks for a project with pagination
         public async Task<List<TaskItem>> GetAllProjectTasksAsync(int projectId, int page, int pageSize)
         {
             return await _context.Tasks
@@ -26,6 +26,7 @@ namespace TaskManagerAPI.Repositories.Implementations
                 .Take(pageSize)
                 .ToListAsync();
         }
+        // Get tasks for a specific user in a project with pagination
         public async Task<List<TaskItem>> GetUserProjectTasksAsync(int projectId, string userId, int page, int pageSize)
         {
             return await _context.Tasks
@@ -34,12 +35,14 @@ namespace TaskManagerAPI.Repositories.Implementations
                .Take(pageSize)
                .ToListAsync();
         }
+        // Add a new task to a project
         public async Task<TaskItem> AddTaskAsync(TaskItem task,string userId,bool isAdmin=false)
         {
             var project = await _context.Projects.FindAsync(task.ProjectId);
             if (project == null) {
                 throw new KeyNotFoundException("project not found.");
             }
+            // Check access if not admin
             if(!isAdmin && project.UserId != userId)
             {
                 throw new UnauthorizedAccessException("You are not authorized to update this task.");
@@ -48,6 +51,7 @@ namespace TaskManagerAPI.Repositories.Implementations
             await _context.SaveChangesAsync();
             return task;
         }
+        // Update an existing task in a project
         public async Task<TaskItem> UpdateTaskAsync(TaskItem updatedTask, int taskId,int projectId,string userId, bool isAdmin = false)
         {
            
@@ -77,6 +81,7 @@ namespace TaskManagerAPI.Repositories.Implementations
 
             return task;
         }
+        // Update the status of a task in a project
         public async Task<TaskItem> UpdateTaskStatusAsync(TaskItemStatus status, int taskId, int projectId, string userId, bool isAdmin = false)
         {
             var task = await _context.Tasks
@@ -99,10 +104,11 @@ namespace TaskManagerAPI.Repositories.Implementations
 
             return task;
         }
+        // Delete a task from a project
         public async Task<bool> DeleteTaskAsync(int taskId, int projectId, string userId, bool isAdmin)
         {
             var task = await _context.Tasks
-                            .Include(t => t.Project) // To access Project.UserId
+                            .Include(t => t.Project) 
                             .FirstOrDefaultAsync(t => t.Id == taskId && t.ProjectId == projectId);
 
             if (task == null)
