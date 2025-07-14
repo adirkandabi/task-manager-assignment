@@ -20,7 +20,7 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
-builder.Host.UseSerilog(); // Add this line
+builder.Host.UseSerilog(); 
 
 
 builder.Services.AddControllers();
@@ -29,7 +29,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // ========== AWS Cognito Configuration ==========
 var region = "us-east-1";
 var userPoolId = "us-east-1_CmFDGrHx1";
-// clientId is not required for token validation in access_token
+
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -119,7 +119,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Optional: CORS if testing from frontend
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
